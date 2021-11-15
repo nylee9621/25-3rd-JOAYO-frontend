@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Dimensions, ScrollView, View } from 'react-native';
+import { Dimensions, ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 import MIDDLE_MENU_LIST from '@/data/Main/MiddleMenuData';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
