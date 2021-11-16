@@ -11,10 +11,10 @@ const displayWidth = Dimensions.get('window').width;
 const bannerHeight = displayWidth * 0.6;
 
 const NAVBAR_HEIGHT = 48; //navbar height에서 가져온 고정값
-const MIDDLE_MENU_HEIGHT = 60; //middleMenu height에서 가져온 고정값
+const MENU_HEIGHT = 60; //middleMenu height에서 가져온 고정값
 
-const headerMaxHeight = bannerHeight + MIDDLE_MENU_HEIGHT;
-const headerMinHeight = NAVBAR_HEIGHT + MIDDLE_MENU_HEIGHT;
+const headerMaxHeight = bannerHeight + MENU_HEIGHT;
+const headerMinHeight = NAVBAR_HEIGHT + MENU_HEIGHT;
 const headerScrollDistance = headerMaxHeight - headerMinHeight;
 
 const Main: React.FC = () => {
@@ -44,12 +44,12 @@ const Main: React.FC = () => {
   });
 
   return (
-    <Container paddingBottom={headerMinHeight}>
+    <Container>
       <Header style={{ transform: [{ translateY: headerTranslate }] }}>
         <Banner width={displayWidth} height={bannerHeight} />
         <MiddleMenu />
       </Header>
-      <Navbars height={headerMinHeight}>
+      <Navbars>
         <NavWrap style={{ opacity: stickyNavOpacity }}>
           <Navbar isSticky={true} />
         </NavWrap>
@@ -58,6 +58,7 @@ const Main: React.FC = () => {
         </NavWrap>
       </Navbars>
       <Contents
+        marginTop={headerMinHeight}
         paddingTop={headerScrollDistance}
         showsVerticalScrollIndicator={false}
         onScroll={handleScrollY}
@@ -68,17 +69,16 @@ const Main: React.FC = () => {
   );
 };
 
-const Container = styled.View<{ paddingBottom: number }>`
-  padding-bottom: ${({ paddingBottom }) => paddingBottom}px;
-`;
+const Container = styled.View``;
 
 const Header = styled(Animated.View)`
   position: absolute;
   top: 0;
+  z-index: 20;
 `;
 
-const Navbars = styled.View<{ height: number }>`
-  align-items: flex-start;
+const Navbars = styled.View`
+  z-index: 40;
 `;
 
 const NavWrap = styled(Animated.View)`
@@ -87,7 +87,11 @@ const NavWrap = styled(Animated.View)`
   width: 100%;
 `;
 
-const Contents = styled(Animated.ScrollView)<{ paddingTop: number }>`
+const Contents = styled(Animated.ScrollView)<{
+  marginTop: number;
+  paddingTop: number;
+}>`
+  margin-top: ${({ marginTop }) => marginTop}px;
   padding-top: ${({ paddingTop }) => paddingTop}px;
 `;
 

@@ -19,7 +19,7 @@ const MENU_LIST = [
   },
   {
     id: 4,
-    icon: 'https://cdn-icons-png.flaticon.com/512/2056/2056607.png',
+    icon: 'https://cdn-icons.flaticon.com/png/512/1292/premium/1292835.png?token=exp=1637042226~hmac=06da25499f0f4fc73d760d43c280c7dc',
     name: '베스트',
     navigate: '',
   },

@@ -16,27 +16,28 @@ const Menu: React.FC = () => {
 };
 
 const Container = styled.View`
+  align-items: center;
   flex-direction: row;
   height: 60px;
 `;
 
 const MenuItem = styled.TouchableOpacity<{ width: number }>`
-  justify-content: center;
   align-items: center;
   width: ${({ width }) => width}%;
 `;
 
 const Icon = styled.Image`
-  align-self: center;
   width: 20px;
   height: 20px;
   opacity: 0.5;
 `;
 
 const Name = styled.Text`
+  margin-top: 6px;
   color: rgba(0, 0, 0, 0.5);
   font-family: 'NotoSansKR500';
   font-size: 11px;
+  line-height: 13px;
 `;
 
 export default Menu;
