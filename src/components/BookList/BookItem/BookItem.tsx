@@ -42,7 +42,6 @@ const Cover = styled.Image`
 
 const Name = styled.Text<{ theme: string }>`
   color: ${({ theme }) => (theme === 'bright' ? '#333333' : '#DADADA')};
-  font-family: 'NotoSansKR500';
   font-size: 13px;
   line-height: 17px;
 `;
@@ -50,25 +49,23 @@ const Name = styled.Text<{ theme: string }>`
 const Info = styled.View`
   flex-direction: row;
   align-items: center;
+  margin-top: 2px;
 `;
 
 const Views = styled.Text`
+  margin-left: 4px;
   color: #898989;
-  font-family: 'NotoSansKR500';
   font-size: 9px;
-  line-height: 11px;
 `;
 
 const Author = styled.Text`
   margin-left: 4px;
   padding-left: 4px;
-  width: 40px;
+  width: 45px;
   border-left-width: 1px;
   border-left-color: #a9a9a9;
   color: #898989;
-  font-family: 'NotoSansKR500';
   font-size: 9px;
-  line-height: 11px;
 `;
 
 export default BookItem;

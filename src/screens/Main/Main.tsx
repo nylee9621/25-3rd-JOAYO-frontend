@@ -63,7 +63,7 @@ const Main: React.FC = () => {
         showsVerticalScrollIndicator={false}
         onScroll={handleScrollY}
       >
-        <RecommendList />
+        <RecommendList headerScrollDistance={headerScrollDistance} />
       </Contents>
     </Container>
   );

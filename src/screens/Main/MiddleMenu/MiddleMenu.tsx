@@ -13,10 +13,12 @@ interface menu {
   width: number;
 }
 
+// type Props = StackScreenProps<RootStackParamList, 'Profile'>;
+
 const menuWidth = Dimensions.get('window').width / 4;
 const maxPosition = (MIDDLE_MENU_LIST.length - 4) * menuWidth;
 
-const MiddleMenu: React.FC = () => {
+const MiddleMenu = () => {
   const [isLeftBtnShow, setIsLeftBtnShow] = useState(false);
   const [isRightBtnShow, setIsRightBtnShow] = useState(true);
   const menuScrollRef = useRef<ScrollView>(null);
@@ -58,7 +60,9 @@ const MiddleMenu: React.FC = () => {
             id={menu.id}
             width={menuWidth}
             activeOpacity={1}
-            onPress={() => {}}
+            onPress={() => {
+              /*navigation.push('FavoriteGenres')*/
+            }}
           >
             <Icon source={{ uri: menu.icon }} />
             <Name>{menu.name}</Name>
@@ -105,7 +109,6 @@ const Icon = styled.Image`
 
 const Name = styled.Text`
   color: rgba(0, 0, 0, 0.5);
-  font-family: 'NotoSansKR500';
   font-size: 11px;
 `;
 

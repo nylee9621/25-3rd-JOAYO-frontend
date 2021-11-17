@@ -45,7 +45,7 @@ const BookList = (props: props) => {
 };
 
 const Container = styled.View<theme>`
-  padding: 10px 0 25px 16px;
+  padding: 25px 0 25px 16px;
   background-color: ${({ theme }) =>
     theme === 'bright' ? 'white' : 'rgb(37, 47, 60)'};
 `;
@@ -53,12 +53,12 @@ const Container = styled.View<theme>`
 const Title = styled.View`
   flex-direction: row;
   align-items: center;
+  margin-bottom: 10px;
 `;
 
 const Word = styled.Text<{ theme: string; isStrong: boolean }>`
   color: ${({ theme, isStrong }) =>
     isStrong ? '#4186e1' : theme === 'bright' ? '#333333' : '#DADADA'};
-  font-family: 'NotoSansKR500';
   font-size: 17px;
 `;
 

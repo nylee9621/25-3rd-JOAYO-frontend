@@ -20,7 +20,7 @@ const MiddleBanner: React.FC = () => {
 };
 
 const Container = styled.View`
-  padding-top: 8px;
+  padding: 8px 0;
   background-color: #f5f5f5;
 `;
 

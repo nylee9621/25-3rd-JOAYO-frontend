@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Main from './src/screens/Main/Main';
+import { createStackNavigator } from '@react-navigation/stack';
+import { Platform, StatusBar } from 'react-native';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 import LoadFonts from './src/components/LoadFonts/LoadFonts';
-import Menu from '@/components/Menu/Menu';
+import Menu from '@/navigations/Menu/Menu';
 
-const Stack = createNativeStackNavigator();
+const statusBarHeight =
+  Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight;
+
+const Stack = createStackNavigator();
 
 const App = () => {
   const [isLoadFont, setIsLoadFont] = useState<boolean>(false);
@@ -14,9 +18,14 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Main" component={Main} />
+        <Stack.Screen
+          name="Main"
+          component={Menu}
+          options={{
+            headerStyle: { height: statusBarHeight },
+          }}
+        />
       </Stack.Navigator>
-      <Menu />
     </NavigationContainer>
   );
 };

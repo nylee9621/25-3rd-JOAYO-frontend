@@ -1,9 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
 import styled from 'styled-components/native';
-import BookList from '@/components/BookList/BookList';
 import RECOMMEND_CATEGORY_LIST from '@/data/Main/RecommendListData';
 import MiddleBanner from './MiddleBanner';
+import BookList from '@/components/BookList/BookList';
 
 const MD_RECOMMEND_DATA = {
   id: 1,
@@ -22,9 +22,11 @@ const BEST_SUPPORTED_DATA = {
   api: '',
 };
 
-const RecommendList: React.FC = () => {
+const RecommendList = (props: { headerScrollDistance: number }) => {
+  const { headerScrollDistance } = props;
+
   return (
-    <View style={{ marginBottom: 200 }}>
+    <Container marginBottom={headerScrollDistance}>
       <BookList data={MD_RECOMMEND_DATA} theme="dark" />
       <MiddleBanner />
       {RECOMMEND_CATEGORY_LIST.map(category => (
@@ -32,8 +34,12 @@ const RecommendList: React.FC = () => {
       ))}
       <View>{/*선택된 선호장르에 맞는 것들만*/}</View>
       <BookList data={BEST_SUPPORTED_DATA} theme="bright" />
-    </View>
+    </Container>
   );
 };
+
+const Container = styled.View<{ marginBottom: number }>`
+  margin-bottom: ${({ marginBottom }) => marginBottom}px;
+`;
 
 export default RecommendList;

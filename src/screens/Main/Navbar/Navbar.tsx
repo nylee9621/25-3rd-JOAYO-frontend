@@ -16,7 +16,7 @@ const Navbar = (props: isSticky) => {
         <FontAwesomeIcon
           icon={faBars}
           size={25}
-          color={isSticky ? '#00000050' : 'white'}
+          color={isSticky ? '#7f7f7f' : 'white'}
         />
       </SiderBtn>
       <Logo isSticky={isSticky}>JOAYO</Logo>
@@ -24,7 +24,7 @@ const Navbar = (props: isSticky) => {
         <FontAwesomeIcon
           icon={faSearch}
           size={25}
-          color={isSticky ? '#00000050' : 'white'}
+          color={isSticky ? '#7f7f7f' : 'white'}
         />
       </SearchBtn>
     </Container>
@@ -34,12 +34,10 @@ const Navbar = (props: isSticky) => {
 const Container = styled.View<isSticky>`
   flex-direction: row;
   align-items: center;
-  width: 100%;
   height: 48px;
   background-color: ${({ isSticky }) => (isSticky ? '#f7f7f7' : 'transparent')};
   border-bottom-width: ${({ isSticky }) => (isSticky ? 1 : 0)}px;
   border-bottom-color: #dcdcdd;
-  z-index: 200;
 `;
 
 const SiderBtn = styled.TouchableOpacity`
