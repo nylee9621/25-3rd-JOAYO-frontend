@@ -5,7 +5,6 @@ import Navbar from './Navbar/Navbar';
 import Banner from './Banner/Banner';
 import MiddleMenu from './MiddleMenu/MiddleMenu';
 import RecommendList from './RecommendList/RecommendList';
-import '@utils/interface';
 
 const displayWidth = Dimensions.get('window').width;
 const bannerHeight = displayWidth * 0.6;

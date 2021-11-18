@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Dimensions, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import styled from 'styled-components/native';
 import MIDDLE_MENU_LIST from '@/data/Main/MiddleMenuData';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
@@ -7,21 +8,16 @@ import {
   faChevronLeft,
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
-
-interface menu {
-  id: number;
-  width: number;
-}
-
-// type Props = StackScreenProps<RootStackParamList, 'Profile'>;
+import { MainScreenNavProp, RootParamList } from '@/utils/type';
 
 const menuWidth = Dimensions.get('window').width / 4;
 const maxPosition = (MIDDLE_MENU_LIST.length - 4) * menuWidth;
 
 const MiddleMenu = () => {
-  const [isLeftBtnShow, setIsLeftBtnShow] = useState(false);
-  const [isRightBtnShow, setIsRightBtnShow] = useState(true);
+  const [isLeftBtnShow, setIsLeftBtnShow] = useState<boolean>(false);
+  const [isRightBtnShow, setIsRightBtnShow] = useState<boolean>(true);
   const menuScrollRef = useRef<ScrollView>(null);
+  const navigation = useNavigation<MainScreenNavProp>();
 
   const menuScroll = (e: nativeEvent) => {
     const scrollPosition = e.nativeEvent.contentOffset.x;
@@ -61,10 +57,10 @@ const MiddleMenu = () => {
             width={menuWidth}
             activeOpacity={1}
             onPress={() => {
-              /*navigation.push('FavoriteGenres')*/
+              navigation.push(menu.name as keyof RootParamList);
             }}
           >
-            <Icon source={{ uri: menu.icon }} />
+            <Icon source={menu.icon} />
             <Name>{menu.name}</Name>
           </Menu>
         ))}
@@ -84,6 +80,7 @@ const MiddleMenu = () => {
 
 const Container = styled.View`
   flex-direction: row;
+  align-items: center;
   padding: 8px 0;
   height: 60px;
   background-color: #f7f7f7;
@@ -93,7 +90,7 @@ const MenuWrapper = styled.ScrollView`
   flex-direction: row;
 `;
 
-const Menu = styled.TouchableOpacity<menu>`
+const Menu = styled.TouchableOpacity<{ id: number; width: number }>`
   align-items: center;
   width: ${({ width }) => width}px;
   ${({ id }) =>
@@ -101,14 +98,13 @@ const Menu = styled.TouchableOpacity<menu>`
 `;
 
 const Icon = styled.Image`
-  align-self: center;
-  width: 20px;
-  height: 20px;
-  opacity: 0.5;
+  width: 16px;
+  height: 16px;
 `;
 
 const Name = styled.Text`
-  color: rgba(0, 0, 0, 0.5);
+  margin-top: 5px;
+  color: #7f7f7f;
   font-size: 11px;
 `;
 

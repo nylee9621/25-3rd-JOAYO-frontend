@@ -5,11 +5,14 @@ import { Platform, StatusBar } from 'react-native';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 import LoadFonts from './src/components/LoadFonts/LoadFonts';
 import Menu from '@/navigations/Menu/Menu';
+import { RootParamList } from '@/utils/type';
+import FavoriteGenres from '@/screens/FavoriteGenres/FavoriteGenres';
+import transAnimation from '@/utils/transAnimation';
 
 const statusBarHeight =
   Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight;
 
-const Stack = createStackNavigator();
+const RootStack = createStackNavigator<RootParamList>();
 
 const App = () => {
   const [isLoadFont, setIsLoadFont] = useState<boolean>(false);
@@ -17,15 +20,20 @@ const App = () => {
   if (!isLoadFont) return <LoadFonts setIsLoadFont={setIsLoadFont} />;
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Main"
+      <RootStack.Navigator>
+        <RootStack.Screen
+          name="Root"
           component={Menu}
           options={{
             headerStyle: { height: statusBarHeight },
           }}
         />
-      </Stack.Navigator>
+        <RootStack.Screen
+          name="선호장르"
+          component={FavoriteGenres}
+          options={{ cardStyleInterpolator: transAnimation }}
+        />
+      </RootStack.Navigator>
     </NavigationContainer>
   );
 };

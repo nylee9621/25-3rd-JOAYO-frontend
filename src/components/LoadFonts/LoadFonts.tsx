@@ -2,11 +2,9 @@ import React from 'react';
 import AppLoading from 'expo-app-loading';
 import getFonts from '@/utils/getFonts';
 
-interface loadFontsProps {
-  setIsLoadFont: Function;
-}
+const LoadFonts = (props: { setIsLoadFont: Function }) => {
+  const { setIsLoadFont } = props;
 
-const LoadFonts = ({ setIsLoadFont }: loadFontsProps) => {
   return (
     <AppLoading
       startAsync={() => getFonts()}

@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import styled from 'styled-components/native';
 import RECOMMEND_CATEGORY_LIST from '@/data/Main/RecommendListData';
 import MiddleBanner from './MiddleBanner';
-import BookList from '@/components/BookList/BookList';
+import BookLine from '@/components/BookLine/BookLine';
 
 const MD_RECOMMEND_DATA = {
   id: 1,
@@ -27,13 +27,13 @@ const RecommendList = (props: { headerScrollDistance: number }) => {
 
   return (
     <Container marginBottom={headerScrollDistance}>
-      <BookList data={MD_RECOMMEND_DATA} theme="dark" />
+      <BookLine data={MD_RECOMMEND_DATA} theme="dark" />
       <MiddleBanner />
       {RECOMMEND_CATEGORY_LIST.map(category => (
-        <BookList key={category.id} data={category} theme="bright" />
+        <BookLine key={category.id} data={category} theme="bright" />
       ))}
       <View>{/*선택된 선호장르에 맞는 것들만*/}</View>
-      <BookList data={BEST_SUPPORTED_DATA} theme="bright" />
+      <BookLine data={BEST_SUPPORTED_DATA} theme="bright" />
     </Container>
   );
 };

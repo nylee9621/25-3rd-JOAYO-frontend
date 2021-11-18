@@ -7,7 +7,6 @@ interface carousel {
   height: number;
 }
 
-type RootStackParamList = {
-  Main: undefined;
-  FavoriteGenres: undefined;
-};
+interface theme {
+  theme: string;
+}

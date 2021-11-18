@@ -1,15 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ScrollView } from 'react-native';
 import styled from 'styled-components/native';
-import '@utils/interface';
+import '@/utils/interface';
 
-interface props {
+interface props extends carousel {
   data: {
     id: number;
     path: string;
   }[];
-  width: number;
-  height: number;
 }
 
 const Carousel = (props: props) => {

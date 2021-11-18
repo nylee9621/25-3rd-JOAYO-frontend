@@ -2,7 +2,6 @@ import React from 'react';
 import { View } from 'react-native';
 import Carousel from '@/components/Carousel/Carousel';
 import BANNER_IMAGE_LIST from '@/data/Main/BannerData';
-import '@/utils/interface';
 
 const Banner = (props: carousel) => {
   const { width, height } = props;

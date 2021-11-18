@@ -15,7 +15,7 @@ const Label = styled.View`
   margin-left: 3px;
   background-color: #4186e1;
   width: 30px;
-  height: 12px;
+  height: 14px;
   border-radius: 16px;
 `;
 

@@ -10,7 +10,7 @@ const MENU_LIST = [
     id: 2,
     inactiveIcon: require('@assets/images/Menu/finish.png'),
     activeIcon: require('@assets/images/Menu/finish-fill.png'),
-    name: '완결작품',
+    name: '완결',
     navigate: '',
   },
   {
@@ -24,7 +24,7 @@ const MENU_LIST = [
     id: 4,
     inactiveIcon: require('@assets/images/Menu/best.png'),
     activeIcon: require('@assets/images/Menu/best-fill.png'),
-    name: '베스트',
+    name: 'Today Best',
     navigate: '',
   },
   {

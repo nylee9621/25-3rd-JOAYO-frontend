@@ -3,21 +3,16 @@ import styled from 'styled-components/native';
 import NewLabel from '@/components/Label/NewLabel';
 import BookItem from './BookItem/BookItem';
 
-interface props {
+interface props extends theme {
   data: {
     id: number;
     title: { isStrong: boolean; text: string }[];
     isNew: boolean;
     api: string;
   };
-  theme: string;
 }
 
-interface theme {
-  theme: string;
-}
-
-const BookList = (props: props) => {
+const BookLine = (props: props) => {
   const { title, isNew } = props.data;
   const { theme } = props;
 
@@ -66,4 +61,4 @@ const Contents = styled.ScrollView`
   flex-direction: row;
 `;
 
-export default BookList;
+export default BookLine;

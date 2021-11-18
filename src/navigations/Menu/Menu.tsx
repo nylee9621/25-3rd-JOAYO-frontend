@@ -3,15 +3,16 @@ import styled from 'styled-components/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Main from '@/screens/Main/Main';
 import MENU_LIST from '@/data/MenuData';
+import { MenuParamList } from '@/utils/type';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<MenuParamList>();
 
 const Menu: React.FC = () => {
   return (
     <Tab.Navigator screenOptions={{ tabBarStyle: { height: 60 } }}>
       <Tab.Screen
         key={0}
-        name="홈"
+        name="메인"
         component={Main}
         options={{
           tabBarItemStyle: { display: 'none' },
@@ -21,7 +22,7 @@ const Menu: React.FC = () => {
       {MENU_LIST.map(menu => (
         <Tab.Screen
           key={menu.id}
-          name={menu.name}
+          name={menu.name as keyof MenuParamList}
           component={Main}
           options={{
             tabBarIcon: ({ focused }) => (

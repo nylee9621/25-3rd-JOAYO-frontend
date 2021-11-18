@@ -18,7 +18,7 @@ const Container = styled.ScrollView``;
 const Header = styled.View`
   height: 48px;
   background-color: white;
-  box-shadow: 0 0 3px 0 #e4e4e4;
+  /* box-shadow: 0 0 3px 0 #e4e4e4; */
 `;
 
 const Title = styled.Text`
