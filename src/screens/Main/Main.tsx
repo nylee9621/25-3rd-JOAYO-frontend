@@ -5,8 +5,8 @@ import Navbar from './Navbar/Navbar';
 import Banner from './Banner/Banner';
 import MiddleMenu from './MiddleMenu/MiddleMenu';
 import RecommendList from './RecommendList/RecommendList';
+import { displayWidth } from '@/constants/sizes';
 
-const displayWidth = Dimensions.get('window').width;
 const bannerHeight = displayWidth * 0.6;
 
 const NAVBAR_HEIGHT = 48; //navbar height에서 가져온 고정값
@@ -86,10 +86,7 @@ const NavWrap = styled(Animated.View)`
   width: 100%;
 `;
 
-const Contents = styled(Animated.ScrollView)<{
-  marginTop: number;
-  paddingTop: number;
-}>`
+const Contents = styled(Animated.ScrollView)<Layout>`
   margin-top: ${({ marginTop }) => marginTop}px;
   padding-top: ${({ paddingTop }) => paddingTop}px;
 `;

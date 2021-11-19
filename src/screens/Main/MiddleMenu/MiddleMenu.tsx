@@ -13,13 +13,13 @@ import { MainScreenNavProp, RootParamList } from '@/utils/type';
 const menuWidth = Dimensions.get('window').width / 4;
 const maxPosition = (MIDDLE_MENU_LIST.length - 4) * menuWidth;
 
-const MiddleMenu = () => {
+const MiddleMenu: React.FC = () => {
   const [isLeftBtnShow, setIsLeftBtnShow] = useState<boolean>(false);
   const [isRightBtnShow, setIsRightBtnShow] = useState<boolean>(true);
   const menuScrollRef = useRef<ScrollView>(null);
   const navigation = useNavigation<MainScreenNavProp>();
 
-  const menuScroll = (e: nativeEvent) => {
+  const menuScroll = (e: NativeEvent) => {
     const scrollPosition = e.nativeEvent.contentOffset.x;
     toggleArrowBtn(scrollPosition);
   };

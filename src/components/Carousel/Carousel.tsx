@@ -3,14 +3,14 @@ import { ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 import '@/utils/interface';
 
-interface props extends carousel {
+interface Props extends Size {
   data: {
     id: number;
     path: string;
   }[];
 }
 
-const Carousel = (props: props) => {
+const Carousel: React.FC<Props> = props => {
   const { width, height, data } = props;
   const [showing, setShowing] = useState<number>(1);
   const [isAutoScroll, setIsAutoScroll] = useState<boolean>(true);
@@ -29,7 +29,7 @@ const Carousel = (props: props) => {
     return () => clearTimeout(autoScroll);
   }, [showing, isAutoScroll]);
 
-  const changeShowingByScroll = (e: nativeEvent) => {
+  const changeShowingByScroll = (e: NativeEvent) => {
     const ratio = e.nativeEvent.contentOffset.x / width;
     if (ratio % 1 < 0.1 || ratio % 1 > 0.9) {
       const temp = Math.round(ratio);
@@ -128,17 +128,17 @@ const Carousel = (props: props) => {
   );
 };
 
-const Container = styled.View<carousel>`
+const Container = styled.View<Size>`
   width: ${({ width }) => width}px;
   height: ${({ height }) => height}px;
 `;
 
-const BannerWrapper = styled.ScrollView<carousel>`
+const BannerWrapper = styled.ScrollView<Size>`
   width: ${({ width }) => width}px;
   height: ${({ height }) => height}px;
 `;
 
-const BannerImage = styled.Image<carousel>`
+const BannerImage = styled.Image<Size>`
   width: ${({ width }) => width}px;
   height: ${({ height }) => height}px;
 `;

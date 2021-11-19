@@ -20,3 +20,5 @@ export type MainScreenNavProp = CompositeNavigationProp<
   BottomTabNavigationProp<MenuParamList, '메인'>,
   StackNavigationProp<RootParamList>
 >;
+
+export type FavoritGenresScreenNavProp = StackNavigationProp<RootParamList>;

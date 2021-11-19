@@ -3,13 +3,11 @@ import styled from 'styled-components/native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
 
-interface isSticky {
+interface IsSticky {
   isSticky: boolean;
 }
 
-const Navbar = (props: isSticky) => {
-  const { isSticky } = props;
-
+const Navbar: React.FC<IsSticky> = ({ isSticky }) => {
   return (
     <Container isSticky={isSticky}>
       <SiderBtn activeOpacity={1} onPress={() => {}}>
@@ -31,7 +29,7 @@ const Navbar = (props: isSticky) => {
   );
 };
 
-const Container = styled.View<isSticky>`
+const Container = styled.View<IsSticky>`
   flex-direction: row;
   align-items: center;
   height: 48px;
@@ -45,7 +43,7 @@ const SiderBtn = styled.TouchableOpacity`
   margin: 0 10px;
 `;
 
-const Logo = styled.Text<isSticky>`
+const Logo = styled.Text<IsSticky>`
   flex: 1;
   margin-left: 10px;
   color: ${({ isSticky }) => (isSticky ? '#21459e' : 'white')};

@@ -3,15 +3,15 @@ import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 import Carousel from '@/components/Carousel/Carousel';
 import BANNER_IMAGE_LIST from '@/data/Main/BannerData';
+import { displayWidth } from '@/constants/sizes';
 
-const bannerWidth = Dimensions.get('window').width;
-const bannerHeight = bannerWidth * 0.164;
+const bannerHeight = displayWidth * 0.164;
 
 const MiddleBanner: React.FC = () => {
   return (
     <Container>
       <Carousel
-        width={bannerWidth}
+        width={displayWidth}
         height={bannerHeight}
         data={BANNER_IMAGE_LIST}
       />

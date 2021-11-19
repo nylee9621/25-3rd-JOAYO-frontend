@@ -2,9 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import PremiumLabel from '@/components/Label/PremiumLabel';
 
-const BookItem = (props: theme) => {
-  const { theme } = props;
-
+const BookItem: React.FC<Theme> = ({ theme }) => {
   return (
     <Container>
       <Cover
@@ -40,7 +38,7 @@ const Cover = styled.Image`
   border-color: #e1e1e1;
 `;
 
-const Name = styled.Text<theme>`
+const Name = styled.Text<Theme>`
   color: ${({ theme }) => (theme === 'bright' ? '#333333' : '#DADADA')};
   font-size: 13px;
   line-height: 17px;

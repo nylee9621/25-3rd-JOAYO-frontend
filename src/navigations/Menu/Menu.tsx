@@ -44,7 +44,7 @@ const Container = styled.View`
   height: 60px;
 `;
 
-const MenuItem = styled.TouchableOpacity<{ width: number }>`
+const MenuItem = styled.TouchableOpacity<Size>`
   align-items: center;
   width: ${({ width }) => width}%;
 `;

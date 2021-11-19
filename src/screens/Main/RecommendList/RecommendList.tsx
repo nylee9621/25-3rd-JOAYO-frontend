@@ -5,6 +5,10 @@ import RECOMMEND_CATEGORY_LIST from '@/data/Main/RecommendListData';
 import MiddleBanner from './MiddleBanner';
 import BookLine from '@/components/BookLine/BookLine';
 
+interface Props {
+  headerScrollDistance: number;
+}
+
 const MD_RECOMMEND_DATA = {
   id: 1,
   title: [
@@ -22,9 +26,7 @@ const BEST_SUPPORTED_DATA = {
   api: '',
 };
 
-const RecommendList = (props: { headerScrollDistance: number }) => {
-  const { headerScrollDistance } = props;
-
+const RecommendList: React.FC<Props> = ({ headerScrollDistance }) => {
   return (
     <Container marginBottom={headerScrollDistance}>
       <BookLine data={MD_RECOMMEND_DATA} theme="dark" />
@@ -38,7 +40,7 @@ const RecommendList = (props: { headerScrollDistance: number }) => {
   );
 };
 
-const Container = styled.View<{ marginBottom: number }>`
+const Container = styled.View<Layout>`
   margin-bottom: ${({ marginBottom }) => marginBottom}px;
 `;
 

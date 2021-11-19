@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import NewLabel from '@/components/Label/NewLabel';
 import BookItem from './BookItem/BookItem';
 
-interface props extends theme {
+interface Props extends Theme {
   data: {
     id: number;
     title: { isStrong: boolean; text: string }[];
@@ -12,7 +12,7 @@ interface props extends theme {
   };
 }
 
-const BookLine = (props: props) => {
+const BookLine: React.FC<Props> = props => {
   const { title, isNew } = props.data;
   const { theme } = props;
 
@@ -39,7 +39,7 @@ const BookLine = (props: props) => {
   );
 };
 
-const Container = styled.View<theme>`
+const Container = styled.View<Theme>`
   padding: 25px 0 25px 16px;
   background-color: ${({ theme }) =>
     theme === 'bright' ? 'white' : 'rgb(37, 47, 60)'};
