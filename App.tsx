@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 import LoadFonts from './src/components/LoadFonts/LoadFonts';
-import Root from '@/navigations/Root/Root';
+import Root from '@/navigations/Root';
 import { Store } from '@/store/reducers';
 
 const App: React.FC = () => {

@@ -2,7 +2,6 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { RootParamList } from '@/utils/type';
 import transAnimation from '@/utils/transAnimation';
-import { statusBarHeight } from '@/constants/sizes';
 import Menu from '@/navigations/Menu/Menu';
 import FavoriteGenres from '@/screens/FavoriteGenres/FavoriteGenres';
 import SimpleHeader from '@/components/Header/SimpleHeader';
@@ -15,9 +14,7 @@ const Root: React.FC = () => {
       <RootStack.Screen
         name="Root"
         component={Menu}
-        options={{
-          headerStyle: { height: statusBarHeight },
-        }}
+        options={{ headerShown: false }}
       />
       <RootStack.Screen
         name="선호장르"

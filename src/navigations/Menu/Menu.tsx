@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { ComponentType } from 'react';
 import styled from 'styled-components/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Main from '@/screens/Main/Main';
 import MENU_LIST from '@/data/MenuData';
 import { MenuParamList } from '@/utils/type';
+import CommonHeader from '@/components/Header/CommonHeader';
+import { statusBarHeight } from '@/constants/sizes';
 
 const Tab = createBottomTabNavigator<MenuParamList>();
 
@@ -16,14 +18,14 @@ const Menu: React.FC = () => {
         component={Main}
         options={{
           tabBarItemStyle: { display: 'none' },
-          headerShown: false,
+          headerStyle: { height: statusBarHeight },
         }}
       />
       {MENU_LIST.map(menu => (
         <Tab.Screen
           key={menu.id}
           name={menu.name as keyof MenuParamList}
-          component={Main}
+          component={menu.navigate}
           options={{
             tabBarIcon: ({ focused }) => (
               <Icon source={focused ? menu.activeIcon : menu.inactiveIcon} />
@@ -31,23 +33,13 @@ const Menu: React.FC = () => {
             tabBarLabel: ({ focused }) => (
               <Name focused={focused}>{menu.name}</Name>
             ),
+            header: () => <CommonHeader title={menu.name} />,
           }}
         />
       ))}
     </Tab.Navigator>
   );
 };
-
-const Container = styled.View`
-  align-items: center;
-  flex-direction: row;
-  height: 60px;
-`;
-
-const MenuItem = styled.TouchableOpacity<Size>`
-  align-items: center;
-  width: ${({ width }) => width}%;
-`;
 
 const Icon = styled.Image`
   width: 20px;
