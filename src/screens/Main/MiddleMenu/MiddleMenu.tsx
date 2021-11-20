@@ -61,7 +61,7 @@ const MiddleMenu: React.FC = () => {
             }}
           >
             <Icon source={menu.icon} />
-            <Name>{menu.name}</Name>
+            <Name>{menu.label}</Name>
           </Menu>
         ))}
       </MenuWrapper>

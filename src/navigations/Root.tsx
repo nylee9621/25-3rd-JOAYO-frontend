@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { RootParamList } from '@/utils/type';
 import transAnimation from '@/utils/transAnimation';
-import Menu from '@/navigations/Menu/Menu';
+import Menu from '@/navigations/Menu';
 import FavoriteGenres from '@/screens/FavoriteGenres/FavoriteGenres';
 import SimpleHeader from '@/components/Header/SimpleHeader';
 
@@ -17,7 +17,7 @@ const Root: React.FC = () => {
         options={{ headerShown: false }}
       />
       <RootStack.Screen
-        name="선호장르"
+        name="FavoriteGenres"
         component={FavoriteGenres}
         options={{
           cardStyleInterpolator: transAnimation,

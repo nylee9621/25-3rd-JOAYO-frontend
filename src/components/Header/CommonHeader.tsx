@@ -29,7 +29,10 @@ const CommonHeader: React.FC<Props> = ({ title }) => {
         <GoAlgorithmBtn activeOpacity={1} onPress={() => {}}>
           <Icon source={require('@assets/images/MiddleMenu/book.png')} />
         </GoAlgorithmBtn>
-        <GoFavoriteGenresBtn activeOpacity={1} onPress={() => {}}>
+        <GoFavoriteGenresBtn
+          activeOpacity={1}
+          onPress={() => navigation.push('FavoriteGenres')}
+        >
           <Icon source={require('@assets/images/MiddleMenu/star.png')} />
         </GoFavoriteGenresBtn>
         <SearchBtn activeOpacity={1} onPress={() => {}}>
