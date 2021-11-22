@@ -1,7 +1,7 @@
 import Main from '@/screens/Main/Main';
 
 export const EVENT_TABS = [
-  { id: 1, name: 'Event', label: '이벤트', navigate: Main },
+  { id: 1, name: 'EventMain', label: '이벤트', navigate: Main },
   { id: 2, name: 'HalfFree', label: '반반무', navigate: Main },
 ];
 

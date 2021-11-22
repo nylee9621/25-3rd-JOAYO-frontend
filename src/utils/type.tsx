@@ -1,4 +1,5 @@
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import { MaterialTopTabNavigationProp } from '@react-navigation/material-top-tabs';
 import { CompositeNavigationProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
@@ -16,7 +17,7 @@ export type MenuParamList = {
   Storage: undefined;
 };
 
-export type ListTabList = { All: undefined };
+export type ListTabList = {};
 
 export type MainScreenNavProp = CompositeNavigationProp<
   BottomTabNavigationProp<MenuParamList, 'Main'>,

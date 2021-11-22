@@ -13,7 +13,6 @@ const NormalLabel: React.FC = () => {
 
 const Label = styled.View`
   justify-content: center;
-  margin-right: 1px;
   width: 11px;
   height: 11px;
 `;

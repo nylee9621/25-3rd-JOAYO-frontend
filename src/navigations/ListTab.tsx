@@ -1,8 +1,8 @@
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { ListTabList } from '@/utils/type';
-import Main from '@/screens/Main/Main';
 import MainListTab from '@/components/ListTab/MainListTab';
+import Books from '@/screens/Books/Books';
 
 interface Props {
   tabs: Tab[];
@@ -24,7 +24,7 @@ const ListTab: React.FC<Props> = ({ tabs }) => {
         <Tab.Screen
           key={tab.id}
           name={tab.name as keyof ListTabList}
-          component={Main}
+          component={Books}
           options={{ tabBarLabel: `${tab.label}` }}
         />
       ))}

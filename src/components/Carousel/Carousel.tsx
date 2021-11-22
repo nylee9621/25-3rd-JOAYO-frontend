@@ -29,7 +29,7 @@ const Carousel: React.FC<Props> = props => {
     return () => clearTimeout(autoScroll);
   }, [showing, isAutoScroll]);
 
-  const changeShowingByScroll = (e: NativeEvent) => {
+  const changeShowingByScroll = (e: ScrollEvent) => {
     const ratio = e.nativeEvent.contentOffset.x / width;
     if (ratio % 1 < 0.1 || ratio % 1 > 0.9) {
       const temp = Math.round(ratio);

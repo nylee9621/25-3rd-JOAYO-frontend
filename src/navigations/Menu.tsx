@@ -7,6 +7,7 @@ import { MenuParamList } from '@/utils/type';
 import CommonHeader from '@/components/Header/CommonHeader';
 import { statusBarHeight } from '@/constants/sizes';
 import ListTab from '@/navigations/ListTab';
+import { Platform } from 'react-native';
 
 const Tab = createBottomTabNavigator<MenuParamList>();
 
@@ -35,6 +36,7 @@ const Menu: React.FC = () => {
               <Name focused={focused}>{menu.label}</Name>
             ),
             header: () => <CommonHeader title={menu.label} />,
+            unmountOnBlur: true,
           }}
         />
       ))}

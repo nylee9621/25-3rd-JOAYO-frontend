@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Animated, Dimensions } from 'react-native';
+import { Animated } from 'react-native';
 import styled from 'styled-components/native';
 import Navbar from './Navbar/Navbar';
 import Banner from './Banner/Banner';

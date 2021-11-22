@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-const PremiumLabel: React.FC<Label> = ({ size }) => {
+const EndLabel: React.FC<Label> = ({ size }) => {
   return (
     <Label size={size}>
-      <Word size={size}>P</Word>
+      <Word size={size}>E</Word>
     </Label>
   );
 };
@@ -12,7 +12,7 @@ const PremiumLabel: React.FC<Label> = ({ size }) => {
 const Label = styled.View<Label>`
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
-  background-color: #acc231;
+  background-color: #333333;
 `;
 
 const Word = styled.Text<Label>`
@@ -23,4 +23,4 @@ const Word = styled.Text<Label>`
   text-align: center;
 `;
 
-export default PremiumLabel;
+export default EndLabel;

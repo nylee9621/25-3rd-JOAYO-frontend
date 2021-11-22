@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 import { MaterialTopTabBarProps } from '@react-navigation/material-top-tabs/lib/typescript/src/types';
@@ -13,6 +13,7 @@ interface Route {
 const ListTab: React.FC<MaterialTopTabBarProps> = props => {
   const { state, descriptors, navigation, position } = props;
   const tabsRef = useRef<ScrollView>(null);
+  const [tabsXPosition, setTabsXposition] = useState<number[]>([]);
 
   return (
     <Container>
@@ -25,7 +26,11 @@ const ListTab: React.FC<MaterialTopTabBarProps> = props => {
           const label = descriptors[route.key].options.tabBarLabel;
           const isSelected = state.index === index;
 
-          const onPress = () => {
+          useEffect(() => {
+            tabsRef.current?.scrollTo({ x: tabsXPosition[state.index] - 50 });
+          }, [state.index]);
+
+          const onPress = (e: any) => {
             const event = navigation.emit({
               type: 'tabPress',
               target: route.key,
@@ -34,8 +39,6 @@ const ListTab: React.FC<MaterialTopTabBarProps> = props => {
             if (!isSelected && !event.defaultPrevented) {
               navigation.navigate(route.name);
             }
-
-            tabsRef.current?.scrollTo({ x: 100 });
           };
 
           return (
@@ -45,6 +48,9 @@ const ListTab: React.FC<MaterialTopTabBarProps> = props => {
               tabsLeng={state.routes.length}
               activeOpacity={1}
               onPress={onPress}
+              onLayout={(e: LayoutEvent) =>
+                setTabsXposition(tabsXPosition.concat(e.nativeEvent.layout.x))
+              }
             >
               <Name isSelected={isSelected}>{label}</Name>
             </TabBtn>
