@@ -7,7 +7,6 @@ import { MenuParamList } from '@/utils/type';
 import CommonHeader from '@/components/Header/CommonHeader';
 import { statusBarHeight } from '@/constants/sizes';
 import ListTab from '@/navigations/ListTab';
-import { Platform } from 'react-native';
 
 const Tab = createBottomTabNavigator<MenuParamList>();
 
@@ -27,7 +26,7 @@ const Menu: React.FC = () => {
         <Tab.Screen
           key={menu.id}
           name={menu.name as keyof MenuParamList}
-          children={() => <ListTab tabs={menu.navigate} />}
+          children={() => <ListTab tabs={menu.listTabs} menu={menu.name} />}
           options={{
             tabBarIcon: ({ focused }) => (
               <Icon source={focused ? menu.activeIcon : menu.inactiveIcon} />

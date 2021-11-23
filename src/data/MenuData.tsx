@@ -13,7 +13,7 @@ const MENU_LIST = [
     label: '이벤트',
     inactiveIcon: require('@assets/images/Menu/event.png'),
     activeIcon: require('@assets/images/Menu/event-fill.png'),
-    navigate: EVENT_TABS,
+    listTabs: EVENT_TABS,
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const MENU_LIST = [
     label: '완결작품',
     inactiveIcon: require('@assets/images/Menu/finish.png'),
     activeIcon: require('@assets/images/Menu/finish-fill.png'),
-    navigate: FINISH_BOOKS_TABS,
+    listTabs: FINISH_BOOKS_TABS,
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const MENU_LIST = [
     label: '최신작품',
     inactiveIcon: require('@assets/images/Menu/new.png'),
     activeIcon: require('@assets/images/Menu/new-fill.png'),
-    navigate: LATEST_BOOKS_TABS,
+    listTabs: LATEST_BOOKS_TABS,
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ const MENU_LIST = [
     label: 'Today Best',
     inactiveIcon: require('@assets/images/Menu/best.png'),
     activeIcon: require('@assets/images/Menu/best-fill.png'),
-    navigate: TODAY_BEST_TABS,
+    listTabs: TODAY_BEST_TABS,
   },
   {
     id: 5,
@@ -45,7 +45,7 @@ const MENU_LIST = [
     label: '보관함',
     inactiveIcon: require('@assets/images/Menu/save.png'),
     activeIcon: require('@assets/images/Menu/save-fill.png'),
-    navigate: STORAGE_TABS,
+    listTabs: STORAGE_TABS,
   },
 ];
 

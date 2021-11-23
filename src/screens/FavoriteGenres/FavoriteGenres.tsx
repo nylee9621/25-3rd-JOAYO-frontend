@@ -30,8 +30,15 @@ const FavoriteGenres: React.FC = () => {
     if (genre === '전체') {
       dispatch(setFavoriteGenres(['전체']));
     } else {
-      const tempGenres = favoriteGenres.filter(el => el !== '전체');
-      dispatch(setFavoriteGenres([...tempGenres, genre]));
+      if (favoriteGenres.includes(genre)) {
+        const tempGenres = favoriteGenres.filter(el => el !== genre);
+        dispatch(
+          setFavoriteGenres(tempGenres.length === 0 ? ['전체'] : tempGenres)
+        );
+      } else {
+        const tempGenres = favoriteGenres.filter(el => el !== '전체');
+        dispatch(setFavoriteGenres([...tempGenres, genre]));
+      }
     }
   };
 

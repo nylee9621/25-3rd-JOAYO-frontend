@@ -1,37 +1,72 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import EndLabel from '../Label/EndLabel';
+import NoblessLabel from '../Label/NoblessLabel';
 import PremiumLabel from '../Label/PremiumLabel';
 
-const ListBookBox: React.FC = () => {
+interface Props {
+  book: Book;
+}
+
+const matchLabelByStore = (store: string) => {
+  switch (store) {
+    case '노블레스':
+      return (
+        <Label>
+          <NoblessLabel size={13} />
+        </Label>
+      );
+    case '프리미엄':
+      return (
+        <Label>
+          <PremiumLabel size={13} />
+        </Label>
+      );
+    default:
+      return;
+  }
+};
+
+const ListBookBox: React.FC<Props> = props => {
+  const {
+    genre,
+    title,
+    author,
+    summary,
+    cover,
+    store,
+    isEnded,
+    views,
+    recommends,
+    favorites,
+  } = props.book;
   const [isMoreIntro, setIsMoreIntro] = useState<Boolean>(false);
 
   return (
     <Container>
       <Info activeOpacity={1} onPress={() => {}}>
-        <Cover source={require('@/assets/images/book-cover-sample.png')} />
+        <Cover source={cover} />
         <Detail>
           <Header>
-            <Category>[스포츠]</Category>
+            <Genre>[{genre}]</Genre>
             <Title numberOfLines={1} ellipsizeMode="tail">
-              제목인데 일단 글자수를 늘려보자 영차영차
+              {title}
             </Title>
-            <Label>
-              <PremiumLabel size={13} />
-            </Label>
-            <Label>
-              <EndLabel size={13} />
-            </Label>
+            {matchLabelByStore(store)}
+            {isEnded && (
+              <Label>
+                <EndLabel size={13} />
+              </Label>
+            )}
           </Header>
-          <Author>작가는 작가</Author>
+          <Author>{author}</Author>
           <Intro numberOfLines={2} ellipsizeMode="tail">
-            이것이 줄거리인데 이것도 일단 줄 수를 채워야하니 열심히 늘려보았다
-            영차영차 조금만 더 늘어나라. 몇 자 안남았는데 왜 이리 안 늘어나냐.
+            {summary}
           </Intro>
           <Scale>
-            <Sector>조회 : 7,900</Sector>
-            <Sector>추천 : 189</Sector>
-            <Sector>선작 : 22</Sector>
+            <Sector>조회 : {views}</Sector>
+            <Sector>추천 : {recommends}</Sector>
+            <Sector>선작 : {favorites}</Sector>
           </Scale>
         </Detail>
       </Info>
@@ -57,7 +92,7 @@ const ListBookBox: React.FC = () => {
       </Buttons>
       {isMoreIntro && (
         <MoreIntroWrapper>
-          <MoreIntro>이것은 작품소개</MoreIntro>
+          <MoreIntro>{summary}</MoreIntro>
         </MoreIntroWrapper>
       )}
     </Container>
@@ -93,7 +128,7 @@ const Header = styled.View`
   align-items: center;
 `;
 
-const Category = styled.Text`
+const Genre = styled.Text`
   color: #4386dc;
   font-size: 14px;
 `;

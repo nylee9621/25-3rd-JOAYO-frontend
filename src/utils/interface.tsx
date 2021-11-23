@@ -27,6 +27,34 @@ interface Layout {
   paddingTop?: number;
 }
 
+interface Book {
+  id: number;
+  genre: string;
+  title: string;
+  author: string;
+  summary: string;
+  keyword: string[];
+  cover: any;
+  store: string;
+  competition: string;
+  isEnded: boolean;
+  views: number;
+  recommends: number;
+  favorites: number;
+  todayViews: number;
+  todayRecommends: number;
+  todayFavorites: number;
+  episode: Episode[];
+}
+
+interface Episode {
+  id: number;
+  subHeading: string;
+  contents: string;
+  authorReview: string;
+  update: string;
+}
+
 interface User {
   id: number;
   favoriteGenres: string[];

@@ -13,6 +13,9 @@ const BOOK_LIST = [
     views: 2461600,
     recommends: 41442,
     favorites: 2298,
+    todayViews: 12000,
+    todayRecommends: 1700,
+    todayFavorites: 800,
     episode: [
       {
         id: 1,
@@ -51,6 +54,9 @@ const BOOK_LIST = [
     views: 2400,
     recommends: 35,
     favorites: 642,
+    todayViews: 1200,
+    todayRecommends: 17,
+    todayFavorites: 23,
     episode: [
       {
         id: 1,
@@ -90,6 +96,9 @@ const BOOK_LIST = [
     views: 111200,
     recommends: 41442,
     favorites: 2298,
+    todayViews: 7800,
+    todayRecommends: 11,
+    todayFavorites: 120,
     episode: [
       {
         id: 1,
@@ -128,6 +137,9 @@ const BOOK_LIST = [
     views: 12345,
     recommends: 5234,
     favorites: 653,
+    todayViews: 500,
+    todayRecommends: 365,
+    todayFavorites: 23,
     episode: [
       {
         id: 1,
@@ -167,6 +179,9 @@ const BOOK_LIST = [
     views: 776427,
     recommends: 99483,
     favorites: 8854,
+    todayViews: 12001,
+    todayRecommends: 69,
+    todayFavorites: 800,
     episode: [
       {
         id: 1,
@@ -205,6 +220,9 @@ const BOOK_LIST = [
     views: 2461600,
     recommends: 41442,
     favorites: 2298,
+    todayViews: 12001,
+    todayRecommends: 1700,
+    todayFavorites: 801,
     episode: [
       {
         id: 1,
@@ -243,6 +261,9 @@ const BOOK_LIST = [
     views: 2461600,
     recommends: 41442,
     favorites: 2298,
+    todayViews: 700,
+    todayRecommends: 564,
+    todayFavorites: 90,
     episode: [
       {
         id: 1,
@@ -281,6 +302,9 @@ const BOOK_LIST = [
     views: 2461600,
     recommends: 41442,
     favorites: 2298,
+    todayViews: 987,
+    todayRecommends: 47,
+    todayFavorites: 9,
     episode: [
       {
         id: 1,
@@ -319,6 +343,9 @@ const BOOK_LIST = [
     views: 2461600,
     recommends: 41442,
     favorites: 2298,
+    todayViews: 7986,
+    todayRecommends: 345,
+    todayFavorites: 365,
     episode: [
       {
         id: 1,
@@ -357,6 +384,9 @@ const BOOK_LIST = [
     views: 2461600,
     recommends: 41442,
     favorites: 2298,
+    todayViews: 12000,
+    todayRecommends: 136,
+    todayFavorites: 800,
     episode: [
       {
         id: 1,
@@ -395,6 +425,9 @@ const BOOK_LIST = [
     views: 2461600,
     recommends: 41442,
     favorites: 2298,
+    todayViews: 12000,
+    todayRecommends: 935,
+    todayFavorites: 234,
     episode: [
       {
         id: 1,
@@ -433,6 +466,9 @@ const BOOK_LIST = [
     views: 2461600,
     recommends: 41442,
     favorites: 2298,
+    todayViews: 5999,
+    todayRecommends: 25,
+    todayFavorites: 12,
     episode: [
       {
         id: 1,
@@ -471,6 +507,9 @@ const BOOK_LIST = [
     views: 2461600,
     recommends: 41442,
     favorites: 2298,
+    todayViews: 36785,
+    todayRecommends: 4567,
+    todayFavorites: 24,
     episode: [
       {
         id: 1,
@@ -509,6 +548,9 @@ const BOOK_LIST = [
     views: 2461600,
     recommends: 41442,
     favorites: 2298,
+    todayViews: 6843,
+    todayRecommends: 57,
+    todayFavorites: 1235,
     episode: [
       {
         id: 1,
@@ -547,6 +589,9 @@ const BOOK_LIST = [
     views: 2461600,
     recommends: 41442,
     favorites: 2298,
+    todayViews: 36721,
+    todayRecommends: 4464,
+    todayFavorites: 801,
     episode: [
       {
         id: 1,
@@ -568,6 +613,33 @@ const BOOK_LIST = [
         contents: '여기가 원래 글 내용인데 아직은 내가 뭘 쓴게 없네',
         authorReview: '선추코 감사합니다.',
         update: '2021-11-19 11:20:30',
+      },
+    ],
+  },
+  {
+    id: 16,
+    genre: '로맨스 판타지',
+    title: '최신순 잘되는지 확인용',
+    author: '작가는 작가',
+    summary: '책 소개는 소개인걸 블라블라. 이것은 줄 늘리기용. 서치가 될까.',
+    keyword: ['이것은', '키워드', '입니다'],
+    cover: require('@assets/images/book-cover-sample.png'),
+    store: '',
+    competition: '',
+    isEnded: false,
+    views: 0,
+    recommends: 0,
+    favorites: 0,
+    todayViews: 0,
+    todayRecommends: 0,
+    todayFavorites: 0,
+    episode: [
+      {
+        id: 1,
+        subHeading: '있을때도 있고',
+        contents: '여기가 원래 글 내용인데 아직은 내가 뭘 쓴게 없네',
+        authorReview: '선추코 감사합니다.',
+        update: '2021-11-23 16:12:00',
       },
     ],
   },
