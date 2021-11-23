@@ -58,13 +58,20 @@ interface Episode {
 interface User {
   id: number;
   favoriteGenres: string[];
+  favoriteBooks: { bookId: number; bookmark: number }[];
 }
 
 interface SetUser {
   setFavoriteGenres: (props: SetFavoriteGenres) => void;
+  setFavoriteBooks: (props: SetFavoriteBooks) => void;
 }
 
 interface SetFavoriteGenres {
   type: string;
   payload: User['favoriteGenres'];
+}
+
+interface SetFavoriteBooks {
+  type: string;
+  payload: User['favoriteBooks'];
 }

@@ -1,13 +1,22 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { Action, applyMiddleware, combineReducers, createStore } from 'redux';
 import thunk from 'redux-thunk';
-import { SET_FAVORITE_GENRES } from './actions';
+import { SET_FAVORITE_BOOKS, SET_FAVORITE_GENRES } from './actions';
 
-const INITIAL_USER: User = { id: 0, favoriteGenres: ['전체'] };
+const INITIAL_USER: User = {
+  id: 0,
+  favoriteGenres: ['전체'],
+  favoriteBooks: [],
+};
 
-const userReducer = (state = INITIAL_USER, action: SetFavoriteGenres) => {
+const userReducer = (
+  state = INITIAL_USER,
+  action: { type: any; payload: any }
+) => {
   switch (action.type) {
     case SET_FAVORITE_GENRES:
       return { ...state, favoriteGenres: action.payload };
+    case SET_FAVORITE_BOOKS:
+      return { ...state, favoriteBooks: action.payload };
     default:
       return state;
   }

@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/store/reducers';
 import styled from 'styled-components/native';
 import EndLabel from '../Label/EndLabel';
 import NoblessLabel from '../Label/NoblessLabel';
 import PremiumLabel from '../Label/PremiumLabel';
+import { setFavoriteBooks } from '@/store/actions';
+import goAlert from '@/utils/goAlert';
 
 interface Props {
   book: Book;
@@ -29,6 +33,7 @@ const matchLabelByStore = (store: string) => {
 
 const ListBookBox: React.FC<Props> = props => {
   const {
+    id,
     genre,
     title,
     author,
@@ -41,6 +46,31 @@ const ListBookBox: React.FC<Props> = props => {
     favorites,
   } = props.book;
   const [isMoreIntro, setIsMoreIntro] = useState<Boolean>(false);
+  const { favoriteBooks } = useSelector(
+    (state: RootState) => state.userReducer
+  );
+  const dispatch = useDispatch();
+
+  const isFavoriteBooks = (id: number) => {
+    return favoriteBooks.map((el: any) => el.bookId).includes(id);
+  };
+
+  const pressFavoriteBtn = (id: number) => {
+    if (isFavoriteBooks(id)) {
+      goAlert('선호작품에서 삭제하시겠습니까?', () => removeFavoriteBooks(id));
+    } else {
+      goAlert('선호작품에 등록하시겠습니까?', () => registFavoriteBooks(id));
+    }
+  };
+
+  const registFavoriteBooks = (id: number) => {
+    dispatch(setFavoriteBooks([...favoriteBooks, { bookId: id, bookmark: 1 }]));
+  };
+
+  const removeFavoriteBooks = (id: number) => {
+    const temp = favoriteBooks.filter((el: any) => el.bookId !== id);
+    dispatch(setFavoriteBooks(temp));
+  };
 
   return (
     <Container>
@@ -71,9 +101,18 @@ const ListBookBox: React.FC<Props> = props => {
         </Detail>
       </Info>
       <Buttons>
-        <ActionBtn activeOpacity={1} onPress={() => {}}>
-          <Icon source={require('@assets/images/MiddleMenu/star.png')} />
-          <BtnLabel>선호작등록</BtnLabel>
+        <ActionBtn
+          activeOpacity={1}
+          onPress={() => {
+            pressFavoriteBtn(id);
+          }}
+        >
+          {isFavoriteBooks(id) ? (
+            <Icon source={require('@assets/images/MiddleMenu/star-fill.png')} />
+          ) : (
+            <Icon source={require('@assets/images/MiddleMenu/star.png')} />
+          )}
+          <BtnLabel>선호작{isFavoriteBooks(id) ? '해제' : '등록'}</BtnLabel>
         </ActionBtn>
         <Gap />
         <ActionBtn
