@@ -12,8 +12,8 @@ const Navbar: React.FC<IsSticky> = ({ isSticky }) => {
         <Icon
           source={
             isSticky
-              ? require('@assets/images/Header/sider.png')
-              : require('@assets/images/Header/sider-white.png')
+              ? require('@assets/images/icon/sider.png')
+              : require('@assets/images/icon/sider-white.png')
           }
         />
       </SiderBtn>
@@ -22,8 +22,8 @@ const Navbar: React.FC<IsSticky> = ({ isSticky }) => {
         <Icon
           source={
             isSticky
-              ? require('@assets/images/Header/search.png')
-              : require('@assets/images/Header/search-white.png')
+              ? require('@assets/images/icon/search.png')
+              : require('@assets/images/icon/search-white.png')
           }
         />
       </SearchBtn>

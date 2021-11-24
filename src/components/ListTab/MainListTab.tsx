@@ -3,6 +3,7 @@ import { ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 import { MaterialTopTabBarProps } from '@react-navigation/material-top-tabs/lib/typescript/src/types';
 import { displayWidth } from '@/constants/sizes';
+import { LayoutEvent } from '@/utils/interface';
 
 interface Route {
   key: any;

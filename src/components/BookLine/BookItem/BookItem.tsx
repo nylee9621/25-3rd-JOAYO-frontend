@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import PremiumLabel from '@/components/Label/PremiumLabel';
+import { Theme } from '@/utils/interface';
 
 const BookItem: React.FC<Theme> = ({ theme }) => {
   return (

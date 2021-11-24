@@ -5,13 +5,13 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 const NormalLabel: React.FC = () => {
   return (
-    <Label>
+    <Wrapper>
       <FontAwesomeIcon icon={faUser} size={9} color="#B7B7B7" />
-    </Label>
+    </Wrapper>
   );
 };
 
-const Label = styled.View`
+const Wrapper = styled.View`
   justify-content: center;
   width: 11px;
   height: 11px;

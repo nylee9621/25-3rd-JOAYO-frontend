@@ -1,15 +1,16 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { Label } from '@/utils/interface';
 
 const NoblessLabel: React.FC<Label> = ({ size }) => {
   return (
-    <Label size={size}>
+    <Wrapper size={size}>
       <Word size={size}>N</Word>
-    </Label>
+    </Wrapper>
   );
 };
 
-const Label = styled.View<Label>`
+const Wrapper = styled.View<Label>`
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
   background-color: #4186e1;

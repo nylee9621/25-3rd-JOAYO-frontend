@@ -1,15 +1,16 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { Label } from '@/utils/interface';
 
 const PremiumLabel: React.FC<Label> = ({ size }) => {
   return (
-    <Label size={size}>
+    <Wrapper size={size}>
       <Word size={size}>P</Word>
-    </Label>
+    </Wrapper>
   );
 };
 
-const Label = styled.View<Label>`
+const Wrapper = styled.View<Label>`
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
   background-color: #acc231;

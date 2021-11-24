@@ -3,6 +3,7 @@ import styled from 'styled-components/native';
 import { statusBarHeight } from '@/constants/sizes';
 import { FavoritGenresScreenNavProp } from '@/utils/type';
 import { useNavigation } from '@react-navigation/native';
+import { Layout } from '@/utils/interface';
 
 interface Props {
   title: string;
@@ -15,28 +16,28 @@ const CommonHeader: React.FC<Props> = ({ title }) => {
     <Container marginTop={statusBarHeight}>
       <Left>
         <SiderBtn activeOpacity={1} onPress={() => {}}>
-          <Icon source={require('@assets/images/Header/sider.png')} />
+          <Icon source={require('@assets/images/icon/sider.png')} />
         </SiderBtn>
         <GoHomeBtn activeOpacity={1} onPress={() => {}}>
-          <Icon source={require('@assets/images/Header/home.png')} />
+          <Icon source={require('@assets/images/icon/home.png')} />
         </GoHomeBtn>
         <GoGiftsBtn activeOpacity={1} onPress={() => {}}>
-          <Icon source={require('@assets/images/MiddleMenu/gift.png')} />
+          <Icon source={require('@assets/images/icon/gift.png')} />
         </GoGiftsBtn>
       </Left>
       <Title>{title}</Title>
       <Right>
         <GoAlgorithmBtn activeOpacity={1} onPress={() => {}}>
-          <Icon source={require('@assets/images/MiddleMenu/book.png')} />
+          <Icon source={require('@assets/images/icon/book.png')} />
         </GoAlgorithmBtn>
         <GoFavoriteGenresBtn
           activeOpacity={1}
           onPress={() => navigation.push('FavoriteGenres')}
         >
-          <Icon source={require('@assets/images/MiddleMenu/star.png')} />
+          <Icon source={require('@assets/images/icon/star.png')} />
         </GoFavoriteGenresBtn>
         <SearchBtn activeOpacity={1} onPress={() => {}}>
-          <Icon source={require('@assets/images/Header/search.png')} />
+          <Icon source={require('@assets/images/icon/search.png')} />
         </SearchBtn>
       </Right>
     </Container>

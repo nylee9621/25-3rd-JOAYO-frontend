@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 import RECOMMEND_CATEGORY_LIST from '@/data/Main/RecommendListData';
 import MiddleBanner from './MiddleBanner';
 import BookLine from '@/components/BookLine/BookLine';
+import { Layout } from '@/utils/interface';
 
 interface Props {
   headerScrollDistance: number;

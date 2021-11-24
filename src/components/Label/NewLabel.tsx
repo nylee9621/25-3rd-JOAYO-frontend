@@ -3,13 +3,13 @@ import styled from 'styled-components/native';
 
 const NewLabel: React.FC = () => {
   return (
-    <Label>
+    <Wrapper>
       <New>NEW</New>
-    </Label>
+    </Wrapper>
   );
 };
 
-const Label = styled.View`
+const Wrapper = styled.View`
   justify-content: center;
   align-items: center;
   margin-left: 3px;

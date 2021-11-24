@@ -1,3 +1,5 @@
+import { Book } from './interface';
+
 export const processBooks = (books: Book[], menu: string, tab: string) => {
   let temp = books;
   temp = makeListByMenu(temp, menu);
@@ -6,29 +8,41 @@ export const processBooks = (books: Book[], menu: string, tab: string) => {
 };
 
 /*======필터&정렬 순서=======*/
-//1차 메뉴
-//2차 탭
-//3차 서브탭
-//4차 선호장르
+//1차 선호장르 --> ListTab Nav에서 수행
+//2차 메뉴
+//3차 탭
+//4차 서브탭
 /*======필터&정렬 순서=======*/
 
-//1차 메뉴 필터
+//1차 선호장르 필터
+export const filterBooksByFavoriteGenres = (
+  books: Book[],
+  favoriteGenres: string[]
+) => {
+  if (favoriteGenres[0] === '전체') {
+    return books;
+  } else {
+    return books.filter(book => favoriteGenres.includes(book.genre));
+  }
+};
+
+//2차 메뉴 필터
 const makeListByMenu = (books: Book[], menu: string) => {
   switch (menu) {
     case 'FinishBooks':
       return books.filter(book => book.isEnded);
     case 'LatestBooks':
       return books.sort((a, b) => {
-        const dateA = new Date(a.episode[a.episode.length - 1].update);
-        const dateB = new Date(b.episode[b.episode.length - 1].update);
+        const dateA = new Date(a.episodes[a.episodes.length - 1].update);
+        const dateB = new Date(b.episodes[b.episodes.length - 1].update);
         return dateA > dateB ? 1 : -1;
       });
     case 'TodayBest':
       return books.sort((a, b) => {
         const averA =
-          a.todayViews + a.todayRecommends * 3 + a.todayFavorites * 5;
+          a.today.views + a.today.recommends * 3 + a.today.favorites * 5;
         const averB =
-          b.todayViews + b.todayRecommends * 3 + b.todayFavorites * 5;
+          b.today.views + b.today.recommends * 3 + b.today.favorites * 5;
         return averB - averA;
       });
     default:
@@ -36,7 +50,7 @@ const makeListByMenu = (books: Book[], menu: string) => {
   }
 };
 
-//2차 탭 필터
+//3차 탭 필터
 const filterBooksByTab = (books: Book[], tab: string) => {
   switch (tab) {
     case 'Festival':
@@ -53,17 +67,5 @@ const filterBooksByTab = (books: Book[], tab: string) => {
       return books.filter(book => book.isEnded);
     default:
       return books;
-  }
-};
-
-//4차 선호장르 필터
-export const filterBooksByFavoriteGenres = (
-  books: Book[],
-  favoriteGenres: string[]
-) => {
-  if (favoriteGenres[0] === '전체') {
-    return books;
-  } else {
-    return books.filter(book => favoriteGenres.includes(book.genre));
   }
 };

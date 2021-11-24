@@ -7,6 +7,8 @@ import NoblessLabel from '../Label/NoblessLabel';
 import PremiumLabel from '../Label/PremiumLabel';
 import { setFavoriteBooks } from '@/store/actions';
 import goAlert from '@/utils/goAlert';
+import { totalRecommends, totalViews } from '@/utils/calcData';
+import { Book } from '@/utils/interface';
 
 interface Props {
   book: Book;
@@ -41,8 +43,6 @@ const ListBookBox: React.FC<Props> = props => {
     cover,
     store,
     isEnded,
-    views,
-    recommends,
     favorites,
   } = props.book;
   const [isMoreIntro, setIsMoreIntro] = useState<Boolean>(false);
@@ -94,8 +94,8 @@ const ListBookBox: React.FC<Props> = props => {
             {summary}
           </Intro>
           <Scale>
-            <Sector>조회 : {views}</Sector>
-            <Sector>추천 : {recommends}</Sector>
+            <Sector>조회 : {totalViews(id)}</Sector>
+            <Sector>추천 : {totalRecommends(id)}</Sector>
             <Sector>선작 : {favorites}</Sector>
           </Scale>
         </Detail>
@@ -108,9 +108,9 @@ const ListBookBox: React.FC<Props> = props => {
           }}
         >
           {isFavoriteBooks(id) ? (
-            <Icon source={require('@assets/images/MiddleMenu/star-fill.png')} />
+            <Icon source={require('@assets/images/icon/star-fill.png')} />
           ) : (
-            <Icon source={require('@assets/images/MiddleMenu/star.png')} />
+            <Icon source={require('@assets/images/icon/star.png')} />
           )}
           <BtnLabel>선호작{isFavoriteBooks(id) ? '해제' : '등록'}</BtnLabel>
         </ActionBtn>
@@ -122,9 +122,9 @@ const ListBookBox: React.FC<Props> = props => {
           }}
         >
           {isMoreIntro ? (
-            <Icon source={require('@assets/images/Book/minus.png')} />
+            <Icon source={require('@assets/images/icon/minus.png')} />
           ) : (
-            <Icon source={require('@assets/images/Book/plus.png')} />
+            <Icon source={require('@assets/images/icon/plus.png')} />
           )}
           <BtnLabel>작품소개</BtnLabel>
         </ActionBtn>

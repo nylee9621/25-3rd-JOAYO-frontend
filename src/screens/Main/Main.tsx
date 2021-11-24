@@ -6,6 +6,7 @@ import Banner from './Banner/Banner';
 import MiddleMenu from './MiddleMenu/MiddleMenu';
 import RecommendList from './RecommendList/RecommendList';
 import { displayWidth } from '@/constants/sizes';
+import { Layout } from '@/utils/interface';
 
 const bannerHeight = displayWidth * 0.6;
 

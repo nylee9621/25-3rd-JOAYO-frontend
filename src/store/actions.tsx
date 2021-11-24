@@ -1,3 +1,5 @@
+import { SetUser, User } from '@/utils/interface';
+
 export const SET_FAVORITE_GENRES = 'SET_FAVORITE_GENRES';
 export const SET_FAVORITE_BOOKS = 'SET_FAVORITE_BOOKS';
 

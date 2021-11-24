@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import NewLabel from '@/components/Label/NewLabel';
 import BookItem from './BookItem/BookItem';
+import { Theme } from '@/utils/interface';
 
 interface Props extends Theme {
   data: {

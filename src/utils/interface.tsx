@@ -1,33 +1,33 @@
-interface ScrollEvent {
+export interface ScrollEvent {
   nativeEvent: { contentOffset: { x: number; y: number } };
 }
 
-interface LayoutEvent {
+export interface LayoutEvent {
   nativeEvent: {
     layout: { x: number; y: number; width: number; height: number };
   };
 }
 
-interface Theme {
+export interface Theme {
   theme: string;
 }
 
-interface Label {
+export interface Label {
   size: number;
 }
 
-interface Size {
-  width?: number;
-  height?: number;
+export interface Size {
+  width: number;
+  height: number;
 }
 
-interface Layout {
+export interface Layout {
   marginTop?: number;
   marginBottom?: number;
   paddingTop?: number;
 }
 
-interface Book {
+export interface Book {
   id: number;
   genre: string;
   title: string;
@@ -38,40 +38,46 @@ interface Book {
   store: string;
   competition: string;
   isEnded: boolean;
-  views: number;
-  recommends: number;
   favorites: number;
-  todayViews: number;
-  todayRecommends: number;
-  todayFavorites: number;
-  episode: Episode[];
+  today: { views: number; recommends: number; favorites: number };
+  episodes: Episode[];
 }
 
-interface Episode {
+export interface Episode {
   id: number;
   subHeading: string;
   contents: string;
   authorReview: string;
   update: string;
+  views: number;
+  recommends: number;
+  comments: Comment[];
 }
 
-interface User {
+export interface Comment {
+  id: number;
+  nickname: string;
+  update: string;
+  comment: string;
+}
+
+export interface User {
   id: number;
   favoriteGenres: string[];
   favoriteBooks: { bookId: number; bookmark: number }[];
 }
 
-interface SetUser {
+export interface SetUser {
   setFavoriteGenres: (props: SetFavoriteGenres) => void;
   setFavoriteBooks: (props: SetFavoriteBooks) => void;
 }
 
-interface SetFavoriteGenres {
+export interface SetFavoriteGenres {
   type: string;
   payload: User['favoriteGenres'];
 }
 
-interface SetFavoriteBooks {
+export interface SetFavoriteBooks {
   type: string;
   payload: User['favoriteBooks'];
 }

@@ -1,23 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components/native';
-import ListBookBox from '@/components/BookBox/ListBookBox';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/reducers';
-import { filterBooksByFavoriteGenres } from '@/utils/processBooks';
+import ListBookBox from '@/components/BookBox/ListBookBox';
+import {
+  filterBooksByFavoriteGenres,
+  processBooks,
+} from '@/utils/processBooks';
+import { Book } from '@/utils/interface';
+import BOOK_LIST from '@/data/BooksData';
 
 interface Props {
-  books: Book[];
+  menu: string;
+  tab: string;
 }
 
-const Books: React.FC<Props> = ({ books }) => {
+const Books: React.FC<Props> = ({ menu, tab }) => {
   const { favoriteGenres } = useSelector(
     (state: RootState) => state.userReducer
   );
+  const [books, setBooks] = useState<Book[]>([]);
+
+  useEffect(() => {
+    setBooks(filterBooksByFavoriteGenres(BOOK_LIST, favoriteGenres));
+  }, [favoriteGenres]);
 
   return (
     <Container>
       <List>
-        {filterBooksByFavoriteGenres(books, favoriteGenres).map(book => (
+        {processBooks(books, menu, tab).map(book => (
           <ListBookBox key={book.id} book={book} />
         ))}
       </List>

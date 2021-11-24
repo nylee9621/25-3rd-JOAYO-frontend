@@ -1,5 +1,4 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 import Carousel from '@/components/Carousel/Carousel';
 import BANNER_IMAGE_LIST from '@/data/Main/BannerData';

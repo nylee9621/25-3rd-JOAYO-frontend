@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 import '@/utils/interface';
+import { ScrollEvent, Size } from '@/utils/interface';
 
 interface Props extends Size {
   data: {

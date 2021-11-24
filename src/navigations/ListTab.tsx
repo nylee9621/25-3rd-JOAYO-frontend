@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import MainListTab from '@/components/ListTab/MainListTab';
 import Books from '@/screens/Books/Books';
 import Main from '@/screens/Main/Main';
-import BOOK_LIST from '@/data/BooksData';
 import { ListTabList } from '@/utils/type';
-import { processBooks } from '@/utils/processBooks';
 
 interface Props {
   tabs: Tab[];
@@ -18,22 +16,22 @@ interface Tab {
   label: string;
 }
 
-const matchComponentByMenu = (menu: string, tab: string) => {
-  switch (menu) {
-    case 'Event':
-      return <Main />;
-    case 'FinishBooks':
-      return <Books books={processBooks(BOOK_LIST, menu, tab)} />;
-    case 'Storage':
-      return <Main />;
-    default:
-      return <Books books={processBooks(BOOK_LIST, menu, tab)} />;
-  }
-};
-
 const Tab = createMaterialTopTabNavigator<ListTabList>();
 
 const ListTab: React.FC<Props> = ({ tabs, menu }) => {
+  const matchComponentByMenu = (menu: string, tab: string) => {
+    switch (menu) {
+      case 'Event':
+        return <Main />;
+      case 'FinishBooks':
+        return <Books menu={menu} tab={tab} />;
+      case 'Storage':
+        return <Main />;
+      default:
+        return <Books menu={menu} tab={tab} />;
+    }
+  };
+
   return (
     <Tab.Navigator tabBar={props => <MainListTab {...props} />}>
       {tabs.map(tab => (

@@ -5,6 +5,7 @@ import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { statusBarHeight } from '@/constants/sizes';
 import { FavoritGenresScreenNavProp } from '@/utils/type';
 import { useNavigation } from '@react-navigation/native';
+import { Layout } from '@/utils/interface';
 
 interface Props {
   title: string;

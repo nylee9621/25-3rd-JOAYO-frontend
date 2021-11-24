@@ -9,6 +9,7 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { MainScreenNavProp, RootParamList } from '@/utils/type';
+import { ScrollEvent } from '@/utils/interface';
 
 const menuWidth = Dimensions.get('window').width / 4;
 const maxPosition = (MIDDLE_MENU_LIST.length - 4) * menuWidth;
@@ -19,7 +20,7 @@ const MiddleMenu: React.FC = () => {
   const menuScrollRef = useRef<ScrollView>(null);
   const navigation = useNavigation<MainScreenNavProp>();
 
-  const menuScroll = (e: NativeEvent) => {
+  const menuScroll = (e: ScrollEvent) => {
     const scrollPosition = e.nativeEvent.contentOffset.x;
     toggleArrowBtn(scrollPosition);
   };

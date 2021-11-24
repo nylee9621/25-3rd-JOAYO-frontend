@@ -1,4 +1,5 @@
-import { Action, applyMiddleware, combineReducers, createStore } from 'redux';
+import { User } from '@/utils/interface';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { SET_FAVORITE_BOOKS, SET_FAVORITE_GENRES } from './actions';
 
