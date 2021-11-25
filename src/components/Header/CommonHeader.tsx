@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { statusBarHeight } from '@/constants/sizes';
-import { FavoritGenresScreenNavProp } from '@/utils/type';
 import { useNavigation } from '@react-navigation/native';
+import { statusBarHeight } from '@/constants/sizes';
+import { FavoritGenresScreenNavProp, MenuScreenNavProp } from '@/utils/type';
 import { Layout } from '@/utils/interface';
 
 interface Props {
@@ -10,7 +10,9 @@ interface Props {
 }
 
 const CommonHeader: React.FC<Props> = ({ title }) => {
-  const navigation = useNavigation<FavoritGenresScreenNavProp>();
+  const navigation = useNavigation<
+    FavoritGenresScreenNavProp | MenuScreenNavProp
+  >();
 
   return (
     <Container marginTop={statusBarHeight}>
@@ -18,7 +20,12 @@ const CommonHeader: React.FC<Props> = ({ title }) => {
         <SiderBtn activeOpacity={1} onPress={() => {}}>
           <Icon source={require('@assets/images/icon/sider.png')} />
         </SiderBtn>
-        <GoHomeBtn activeOpacity={1} onPress={() => {}}>
+        <GoHomeBtn
+          activeOpacity={1}
+          onPress={() => {
+            navigation.goBack();
+          }}
+        >
           <Icon source={require('@assets/images/icon/home.png')} />
         </GoHomeBtn>
         <GoGiftsBtn activeOpacity={1} onPress={() => {}}>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import MainListTab from '@/components/ListTab/MainListTab';
 import Books from '@/screens/Books/Books';

@@ -8,7 +8,7 @@ import {
   faChevronLeft,
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
-import { MainScreenNavProp, RootParamList } from '@/utils/type';
+import { ListTabList, MenuScreenNavProp } from '@/utils/type';
 import { ScrollEvent } from '@/utils/interface';
 
 const menuWidth = Dimensions.get('window').width / 4;
@@ -18,7 +18,7 @@ const MiddleMenu: React.FC = () => {
   const [isLeftBtnShow, setIsLeftBtnShow] = useState<boolean>(false);
   const [isRightBtnShow, setIsRightBtnShow] = useState<boolean>(true);
   const menuScrollRef = useRef<ScrollView>(null);
-  const navigation = useNavigation<MainScreenNavProp>();
+  const navigation = useNavigation<MenuScreenNavProp>();
 
   const menuScroll = (e: ScrollEvent) => {
     const scrollPosition = e.nativeEvent.contentOffset.x;
@@ -58,7 +58,11 @@ const MiddleMenu: React.FC = () => {
             width={menuWidth}
             activeOpacity={1}
             onPress={() => {
-              navigation.push(menu.name as keyof RootParamList);
+              menu.navigate === 'LatestBooks'
+                ? navigation.navigate(menu.navigate, {
+                    screen: menu.name as keyof ListTabList,
+                  })
+                : navigation.navigate(menu.navigate);
             }}
           >
             <Icon source={menu.icon} />

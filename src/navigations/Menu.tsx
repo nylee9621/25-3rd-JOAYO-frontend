@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { BackHandler } from 'react-native';
 import styled from 'styled-components/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useNavigation } from '@react-navigation/native';
 import Main from '@/screens/Main/Main';
-import MENU_LIST from '@/data/MenuData';
-import { MenuParamList } from '@/utils/type';
 import CommonHeader from '@/components/Header/CommonHeader';
-import { statusBarHeight } from '@/constants/sizes';
 import ListTab from '@/navigations/ListTab';
+import MENU_LIST from '@/data/MenuData';
+import { MenuParamList, MenuScreenNavProp } from '@/utils/type';
+import { statusBarHeight } from '@/constants/sizes';
 
 const Tab = createBottomTabNavigator<MenuParamList>();
 
 const Menu: React.FC = () => {
+  const navigation = useNavigation<MenuScreenNavProp>();
+
+  useEffect(() => {
+    const goBack = () => {
+      navigation.goBack();
+      return true;
+    };
+    BackHandler.addEventListener('hardwareBackPress', goBack);
+    return BackHandler.removeEventListener('hardwareBackPress', goBack);
+  }, []);
+
   return (
     <Tab.Navigator screenOptions={{ tabBarStyle: { height: 60 } }}>
       <Tab.Screen
@@ -35,7 +48,6 @@ const Menu: React.FC = () => {
               <Name focused={focused}>{menu.label}</Name>
             ),
             header: () => <CommonHeader title={menu.label} />,
-            unmountOnBlur: true,
           }}
         />
       ))}
