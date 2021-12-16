@@ -9,10 +9,10 @@
 
 ## View
 #### 1. 메인
-<img width="500" alt="메인" src="https://user-images.githubusercontent.com/40952119/146367599-810523a0-9dd5-423c-95ee-c579ddfe3a6a.png">
+<img width="350" alt="메인" src="https://user-images.githubusercontent.com/40952119/146367599-810523a0-9dd5-423c-95ee-c579ddfe3a6a.png">
 
 #### 2. 선호 장르
-<img width="500" alt="메인" src="https://user-images.githubusercontent.com/40952119/146367608-1ff8ab3a-233a-473a-9065-daf6e0902a72.png">
+<img width="350" alt="메인" src="https://user-images.githubusercontent.com/40952119/146367608-1ff8ab3a-233a-473a-9065-daf6e0902a72.png">
 
 #### 3. 작품 목록
-<img width="500" alt="메인" src="https://user-images.githubusercontent.com/40952119/146367616-770535c8-ac8a-43bc-907c-cf78753a1b47.png">
+<img width="350" alt="메인" src="https://user-images.githubusercontent.com/40952119/146367616-770535c8-ac8a-43bc-907c-cf78753a1b47.png">
